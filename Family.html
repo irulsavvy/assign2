@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IRULKAWA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    nav {
+      background: black;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      transition: color 0.8s ease, transform 0.8s ease;
+    }
+
+    nav a:hover {
+      color: red;
+      transform: scale(1.1);
+    }
+
+    nav a:not(:last-child)::after {
+      content: " 🤍";
+      margin-left: 20px;
+      color: #555;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .slider {
+      max-width: 800px;
+      margin: 40px auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .controls button {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      font-size: 24px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .controls button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .description {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background-color: #1f1f1f;
+      color: #ccc;
+      padding: 30px 0;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Biodata.html">Profile</a>
+    <a href="Education.html">Academic</a>
+    <a href="Experience.html">Experience</a>
+    <a href="Family.html">Family</a>
+    <a href="Gallery.html">Gallery</a>
+  </nav>
+
+  <h1><em>My Beloved Family</em></h1>
+
+  <div class="slider">
+    <div class="slides" id="slideContainer">
+      <img src="image/r1.jpg" alt="Image 1">
+      <img src="image/r2.jpg" alt="Image 2">
+      <img src="image/r3.jpg" alt="Image 3">
+      <img src="image/a4.jpg" alt="Image 4">
+    </div>
+    <div class="controls">
+      <button onclick="prevSlide()">❮</button>
+      <button onclick="nextSlide()">❯</button>
+    </div>
+  </div>
+
+  <div class="description">
+    <h4><em>About My Family</em></h4>
+    <ol>
+      <li>My dad already passed away (10/9/2022)</li>
+      <li>I am the eldest (anak sulong)</li>
+      <li>Angah (second son in family) proceeds study at Matrikulasi Gopeng</li>
+      <li>I have 2 little brothers and 2 little sisters that I love</li>
+      <li>I love my mom</li>
+    </ol>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <p>241570003 AHMAD ZAHIRUL ADHAM BIN AHMAD SUHAIRY.</p>
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.getElementById("slideContainer");
+    const totalSlides = slides.children.length;
+
+    function updateSlidePosition() {
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlidePosition();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlidePosition();
+    }
+  </script>
+
+</body>
+</html>
